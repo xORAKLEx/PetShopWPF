@@ -1,4 +1,5 @@
-﻿using Dog_GrpcService.Services;
+﻿using Core.Serializers;
+using Dog_GrpcService.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -18,6 +19,8 @@ namespace Dog_GrpcService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddGrpc();
+
+            services.AddTransient<DogSerializer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
